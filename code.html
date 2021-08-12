@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" class="h-100">
 	<head>
-		<title>App Name: A Coding Project By Ace Baugh</title>
+		<title>UFO Tofu: A Coding Project By Ace Baugh</title>
 		<!-- Required meta tags -->
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -29,7 +29,7 @@
 				<!-- Navbar Logo -->
 				<div class="ps-2">
 					<a href="http://digitalelegance.com/index.html"></a
-					><a href="index.html" class="navbar-brand header-logo"><img src="img/DE.svg" class="d-inline-block align-text-top mt-1" height="40px">***APP NAME***</a>
+					><a href="index.html" class="navbar-brand header-logo"><img src="img/DE.svg" class="d-inline-block align-text-top mt-1" height="40px">UFO Tofu</a>
 				</div>
 				<button
 					class="navbar-toggler border-gold"
@@ -71,7 +71,7 @@
 
 						<!-- Link - GitHub Repo -->
 						<li class="nav-item px-3 px-lg-0">
-							<a class="nav-link" id="gitLink" target="_blank" href="https://github.com/acieffe/APP NAME"
+							<a class="nav-link" id="gitLink" target="_blank" href="https://github.com/acieffe/ufotofu"
 								><i class="fab fa-github me-1 h4"></i></svg
 								>Git Repo</a
 							>
@@ -100,19 +100,77 @@
                   <pre class="line-numbers">
                      <code class="language-javascript">
 
-                           // Call Hello World alert
-                           function helloWorld() {
-                              alert("Hello, World");
-                           }
+// Validation on user input
+function isValid() {
+	// Get Values from Page
+	let usrInput = document.getElementById('usrInput').value;
+
+	// Validates input (makes sure input is not empty)
+	if (usrInput === '') {
+		alert('Please enter a word or phrase');
+	} else {
+		emptyOutput();
+		printOuput(usrInput, modify(usrInput), reversify(modify(usrInput)));
+	}
+}
+
+// Empty the results on the page
+function emptyOutput() {
+	let output = document.getElementById('results');
+	output.innerHTML = '***Results Go Here***';
+}
+
+// This function takes out punctuation and changes everything to lowercase
+function modify(str) {
+	let modStr = '';
+
+	for (let i = 0; i < str.length; i++) {
+		if (/[a-zA-Z0-9]/.test(str[i])) {
+			// tests if the string is alphanumeric
+			modStr += str[i].toLowerCase();
+		}
+	}
+	return modStr;
+}
+
+// This function reverses the passed string
+function reversify(str) {
+	let revStr = '';
+
+	for (let i = str.length - 1; i >= 0; i--) {
+		revStr += str[i];
+	}
+	return revStr;
+}
+
+// This function gived the appropriate output if it is or isn't a palindrome
+function printOuput(usrInput, modified, reversed) {
+	if (modified === reversed) {
+		document.getElementById('results').innerHTML = `<h4>${usrInput} is absolutely a Palindrome</h4><p>${modified} is the same as ${reversed}!</p>`;
+	} else {
+		document.getElementById(
+			'results'
+		).innerHTML = `<h4>${usrInput} is <span class="text-danger">not</span> a Palindrome</h4><p>${modified} and ${reversed} don't appear to be the same.</p>`;
+	}
+}
+
 							</code>
                   </pre>
                </div>
 
 		<!-- Code Description Area -->
                <div class="col-lg-4 pb-5 mb-5 ">
-                  <p>The Code is structured in one function</p>
-                  <h5>Hello World</h5>
-                  <p>Hello World is a function that displays an alert the the message of, "Hello, World"</p>
+                  <p>The Code is structured in the following functions</p>
+                  <h5>isValid</h5>
+                  <p>isValid is a function that checks first if the user input is not empty. If it isn't, it will alert the user to enter a valid entry. If it is valid, it will then empty the previous results and send the input to be printed by calling three functions modify, reversify, and printOutput</p>
+                  <h5>emptyOutput</h5>
+                  <p>emptyOutput removes anything previous in the results area.</p>
+                  <h5>modify</h5>
+                  <p>modify takes the user valid user input and goes through each letter and stores it in a new string after checking if it is alphanumeric and makes it lowercase for ease of comparison. It then return the modified string.</p>
+                  <h5>reversify</h5>
+                  <p>reversify takes the newly modifed string and returns the exact string reversed</p>
+                  <h5>printOutput</h5>
+                  <p>printOutput takes the original user input, the modified input, and the reversed version of the input and displays a message signifying if the input is or is not a palindrome.</p>
                </div>
 					<div class="col-12 d-none d-lg-block my-4"></div> <!-- Gives more padding under code section -->
             </div>

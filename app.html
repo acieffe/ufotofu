@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" class="h-100">
 	<head>
-		<title>App Name: A Coding Project By Ace Baugh</title>
+		<title>UFO Tofu: A Coding Project By Ace Baugh</title>
 		<!-- Required meta tags -->
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -28,7 +28,7 @@
 				<!-- Navbar Logo -->
 				<div class="ps-2">
 					<a href="http://digitalelegance.com/index.html"></a
-					><a href="index.html" class="navbar-brand header-logo"><img src="img/DE.svg" class="d-inline-block align-text-top mt-1" height="40px">***APP NAME***</a>
+					><a href="index.html" class="navbar-brand header-logo"><img src="img/DE.svg" class="d-inline-block align-text-top mt-1" height="40px">UFO Tofu</a>
 				</div>
 				<button
 					class="navbar-toggler border-gold"
@@ -70,7 +70,7 @@
 
 						<!-- Link - GitHub Repo -->
 						<li class="nav-item px-3 px-lg-0">
-							<a class="nav-link" id="gitLink" target="_blank" href="https://github.com/acieffe/APP NAME"
+							<a class="nav-link" id="gitLink" target="_blank" href="https://github.com/acieffe/ufotofu"
 								><i class="fab fa-github me-1 h4"></i></svg
 								>Git Repo</a
 							>
@@ -91,6 +91,30 @@
 		<!-- ====== Maiu Section ====== -->
 		<main class="flex-shrink-0 d-flex pb-2 mb-5">
 			<div class="container col-xxl-8 px-4 py-5 my-5 bg-black-8 text-light">
+				<div class="row rowcols-1 row-cols-lg-2">
+					<div class="col-lg-4">
+						<h1>UFO Tofu: A Coding Project</h1>
+						<h4 class="lead">UFO Tofu sounds like just another extra-terrestrial bean curd, but it also a palindrome. It can be read both forwards and bakwards the same. This application checks if the user input is a palindrome or not and displays a message of the outcome.</h4>
+						<h2 class="mt-5 border-bottom-gold">Instructions</h2>
+						<p>Enter a word or phrase. Press the button and it will display if it is a palindrome or not. (punctuation will automatically be removed)</p>
+					</div>
+					<div class="col-lg-8">
+						<h5>Enter a word or phrase</h5>
+						<form class="row">
+							<div class="col">
+								<input type="text" id="usrInput" class="form-control" placeholder="Enter a word or phrase" aria-label="Enter a word or phrase" required>
+							</div>
+							<div class="col-12 d-flex justify-content-end mt-2">
+								<button id="btnSubmit" type="button" class="btn btn-warning btn-lg me-2">Check it</button>
+								<button id="btnEmpty" type="button" class="btn btn-outline-warning btn-lg">Clear it</button>
+							</div>
+						</form>
+						<h2 class="mt-5 border-bottom-gold">Results</h2>
+						<div class="alert-warning rounded p-3 text-black" id="results">
+							***Results Go Here***
+						</div>
+					</div>
+				</div>
 			</div>
 		</main>
 
@@ -161,5 +185,9 @@
 			crossorigin="anonymous"
 		></script>
 		<script src="js/site.js"></script>
+		<script>
+			document.getElementById ('btnSubmit').addEventListener('click', isValid);
+			document.getElementById('btnEmpty').addEventListener("click", emptyOutput);
+		</script>
 	</body>
 </html>
